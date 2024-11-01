@@ -1,0 +1,13 @@
+langchain
+fastapi
+uvicorn
+jupyter
+streamlit
+PyPDF2
+google-generativeai
+faiss-cpu
+langchain-google-genai
+python-dotenv
+langchain-community
+langchain-google-genai
+python-multipart
