@@ -1,7 +1,9 @@
 .venv
+
 .vscode
 faiss_index
 functions/__pycache__
 functions/.env
 router/__pycache__
 qa_logs_1.json
+.gitignore
