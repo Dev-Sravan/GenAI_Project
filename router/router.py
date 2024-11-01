@@ -5,6 +5,10 @@ from functions.functions import extract_zip, get_all_pdfs_from_folder, get_pdf_t
 
 router = FastAPI(debug=True)
 
+@router.get("/")
+async def home():
+    return JSONResponse(content="Hello world!")
+
 @router.post("/upload-pdf/")
 async def upload_pdf(file: UploadFile = File(...)):
     """
