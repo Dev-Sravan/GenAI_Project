@@ -28,10 +28,10 @@ logger = logging.getLogger(__name__)
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Initialize constants
-CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", 10000))
-CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", 1000))
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", 4000))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", 400))
 MODEL_NAME = os.getenv("MODEL_NAME")
-EMBEDDING_MODEL = "models/embedding-001"
+EMBEDDING_MODEL = "models/text-embedding-004"
 
 def extract_zip(zip_file: bytes) -> str:
 
@@ -112,7 +112,7 @@ def get_conversational_chain() -> Tuple[str, any]:
     Question:\n {question}\n
     Answer:
     """
-    llm_model = ChatGoogleGenerativeAI(model=MODEL_NAME, temperature=0.3)
+    llm_model = ChatGoogleGenerativeAI(model=MODEL_NAME, temperature=0.3, convert_system_message_to_human=True) #changed here
     prompt = ChatPromptTemplate.from_template(template=prompt_template)
     chain = create_stuff_documents_chain(llm_model, prompt)
     logger.info("Conversational chain created.")
