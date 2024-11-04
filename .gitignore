@@ -7,3 +7,7 @@ functions/.env
 router/__pycache__
 qa_logs_1.json
 .gitignore
+test.ipynb
+Chelsea_medical_summary.zip
+index
+.env
